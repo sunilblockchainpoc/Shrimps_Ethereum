@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "enum": "^2.5.0",
+    "express": "expressjs/express",
+    "fibers": "^2.0.2",
+    "fs": "0.0.1-security",
+    "ipfs-api": "^22.0.1",
+    "path": "^0.12.7",
+    "request": "^2.82.0",
+    "web3": "^0.20.6"
+  }
+}

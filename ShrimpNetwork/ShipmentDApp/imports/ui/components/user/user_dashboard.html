@@ -1,0 +1,76 @@
+<template name="components_user_dashboard">
+
+    <div class="panel panel-default panel-dapp">
+
+        <div class="panel-heading">
+
+            Shipment Details
+
+        </div>
+
+        <div class="panel-body">
+
+            <div class="row">
+
+                <div class="col-sm-12">
+
+                    <div class="table-responsive">
+
+                        <table class="table table-hover">
+
+                            <thead>
+
+                                <tr>
+
+                                    <td>CONSIGNMENT_NO</td>
+                                    <td>package_id</td>
+                                    <td>weight</td>
+                                    <td>description</td>
+                                    <td>created_by</td>
+                                    <td>created_date</td>
+                                    <td>state</td>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                {{#with TemplateVar.get 'shipmentInfo'}}
+
+                                {{#if list}}
+
+                                {{#each getShipmentList}}
+
+                                <tr>
+                                    <td><a href="{{pathFor 'App.updateShipmentStatus'}}?CONSIGNMENT_NO={{CONSIGNMENT_NO}}&package_id={{package_id}}" target="_blank" style="color: #2980b9;"><b>{{CONSIGNMENT_NO}}</b></a></td>
+                                        <td>{{package_id}}</td>
+                                        <td>{{weight}}</td>
+                                        <td>{{description}}</td>
+                                         <td>{{created_by}}</td>
+                                        <td>{{created_date}}</td>
+                                        <td>{{state}}</td>
+
+                                </tr>
+
+                                {{/each}}
+
+                                {{/if}}
+
+                                {{/with}}
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</template>

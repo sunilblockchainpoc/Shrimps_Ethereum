@@ -1,0 +1,164 @@
+<template name="components_tree_view">
+    <div class="container">
+    <div class="row">
+            <div class="col-md-12">
+            <img class="arrow" src="Submit@3x.png"><span><label class="content-header">TRACK & TRACE CONSIGNMENT DETAILS</label></span><hr>
+        </div>
+        <div class="col-md-5">
+        <div class="col-sm-12 form-group">
+            <label class="col-sm-4 control-label">Select Consignment No</label>
+            </div>
+            <div class="col-sm-5">
+                <select class="form-control" id="consignmentNo"> 
+                {{#each getConsignmentList}}
+                    <option value={{consignmentNo}}>{{CONSIGNMENT_NO}}</option>
+                    {{/each}}
+                </select>
+                <div class="col-sm-3">
+
+                <button type="button" id="btnTrackConsignment" class="btn">Trace
+                </button>
+            </div>                    
+                </div>
+                   </div>
+            </div>
+                    <br>                        
+                    <br>
+                    <br>
+                    <div class="row">
+                    <div class="col-md-12">
+                    <img class="arrow" src="batch_icon@3x.png"><span><label class="content-header">CONSIGNMENT DETAILS - TREE VIEW</label></span><hr>
+                    </div>
+                    </div>
+                            <div class="panel-body col-md-3 ">
+                            {{> TreeView consignmentTreeArgs}}
+                    </div>
+    </div>
+
+    {{#with TemplateVar.get 'state'}}
+    <!-- {{#if treeLoaded}}    -->
+     {{#each getItemDetails}}
+     <div class="col-md-9 table_section">
+    
+        {{#if getLinearView}} 
+        <div class="table-wrapper">
+            <div class="mrgnBtm borderBox">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{label1}}</th>
+                            <th>{{label2}}</th>
+                            <th>{{label3}}</th>
+                            <th>{{label4}}</th>
+                            <th>{{label5}}</th>
+                            <th>{{label6}}</th>
+                            <th>{{label7}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{value1}}</td>
+                        <td>{{value2}}</td>
+                        <td>{{value3}}</td>
+                        <td>{{value4}}</td>
+                        <td>{{value5}}</td>
+                        <td>{{value6}}</td>
+                        <td>{{value7}}</td>
+                        </tr>
+                   </tbody>
+                </table>
+            </div>
+        </div>  
+   <div class="table-new">
+        <div class="mrgnBtm borderBox">
+              <table class="records table table-bordered">
+                  <thead>
+                      <tr>
+                          <th><img src="Unit_icon@3x.png" alt="unit icon"><p>SELLABLE UNIT</p><span class="text">({{value8}})</span></th>
+                          <th><img src="shipping_icon@3x.png" alt="shipping icon"><p>SHIPPING</p><span class="text">({{value25}})</span></th>
+                          <th><img src="packaging_icon@3x.png" alt="packaging icon"><p>PACKAGING</p><span class="text">({{value11}})</span></th>
+                          <th><img src="batch_icon@3x.png" alt="batch icon"><p>BATCH</p><span class="text">({{value12}})</span></th>
+                          <th><img src="farmer_icon@3x.png" alt="farmer icon"><p>FARMER</p><span class="text">({{value18}})</span></th>
+                          <th><img src="pond_icon@3x.png" alt="pond icon"><p>POND</p><span class="text">({{value19}})</span></th>
+                      </tr>
+                  </thead>
+                  
+                  <tbody>
+                <tr>
+                    <td>
+                        <p class="alignLeft">Size</p>
+                        <p class="alignRight">{{value9}}Kg</p>
+                        <p class="sub-textLeft">{{value10}} Shrimps</p>
+                    </td>
+                          <td ><p class="alignLeft">{{value26}}</p>
+                            <br>Shipped By - Sudeep,ITC
+                            <br>Origin     - Bangalore,INDIA
+                            <br>Destination- Manchester,UK
+                            <br>Shipped on - {{value27}}
+                            <br>Expected Date - 25-06-2018
+                    </td>
+                        
+                          <td ><p class="alignLeft" >ITC Foods</p><p class="sub-textLeft" >Shop No 108,Wheeler Road,<br>Cox Town,Bengaluru,<br>Karnataka 560005</p>
+                            <br>Packed - {{value27}}
+                            <br>Truck - KA02 AB-1234
+                            <br>Pack -10 Carton Boxes
+                            <br>Quantity - 100Kg
+                        
+                        </td>
+                          <td><p class="alignLeft" >{{value13}}</p>
+                             <p class="sub-textLeft">Date - {{value15}}
+                              <br> Quantity - {{value14}} kg
+                              <br> Ideal Temp - {{value16}} to {{value17}}
+                              <br>
+
+                              <br> <a href="" id={{value30}} class="reportFilelink"> {{value31}} </a>
+                            </p></td>
+                          <td> <p class="alignLeft"> {{value20}}  {{value21}}</p></td>
+                          <td> <p class="alignLeft" > {{value22}}</p><p class="sub-textLeft" >Location <br> {{value23}}° N, {{value24}}° E</p></td>
+                          
+                      </tr>
+                  </tbody>
+              </table>
+              </div>
+        </div>       
+
+    
+    {{else}}
+    <div class="table-wrapper">
+            <div class="mrgnBtm borderBox">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{label1}}</th>
+                            <th>{{label2}}</th>
+                            <th>{{label3}}</th>
+                            <th>{{label4}}</th>
+                            <th>{{label5}}</th>
+                            <th>{{label6}}</th>
+                            <th>{{label7}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{value1}}</td>
+                        <td>{{value2}}</td>
+                        <td>{{value3}}</td>
+                        <td>{{value4}}</td>
+                        <td>{{value5}}</td>
+                        <td>{{value6}}</td>
+                        <td>{{value7}}</td>
+                    </tr>
+                   </tbody>
+                </table>
+            </div>
+        </div>                                 
+        {{/if}}
+        </div>
+    {{/each}}
+    <!-- {{/if}} -->
+     {{/with}}
+
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+</template>
+

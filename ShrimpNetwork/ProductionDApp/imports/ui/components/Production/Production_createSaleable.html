@@ -1,0 +1,76 @@
+<template name="components_Production_createSaleable">
+    <div class="panel panel-default panel-dapp">
+        <div class="panel-heading">
+            Create Saleable
+        </div>
+        <div class="panel-body">
+            {{#with TemplateVar.get 'state'}} {{#if isError}}
+            <div class="alert alert-warning">
+                Error creating user. Please try again.
+            </div>
+            {{/if}} {{#if isMining}}
+            <div class="alert alert-info">
+                Saleable Unit Creation In Progress....
+                <span class="badge text-right">
+                    <i class="fa fa-cog fa-spin"></i>
+                </span>
+            </div>
+            {{/if}} {{#if isMined}}
+            <div class="alert alert-info">
+                Saleable Unit has been created successfully!.
+            </div>
+            <hr />
+            <br /> {{/if}} {{/with}}
+
+            <div class="row">
+                <div class="col-md-12">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="skucode" class="col-sm-4 control-label">SKU Code</label>
+                            <div class="col-sm-6">
+                                <select required class="form-control" id="skucode">
+                                    <option selected disabled value="">Select SKU Code</option>
+                                    {{#with TemplateVar.get 'SKUInfo'}} 
+                                    {{#if resultSet}} 
+                                    {{#each getSKUdetails}}
+                                    <option value="{{SKUcode}}">{{SKUcode}}</option>
+                                    {{/each}} 
+                                    {{/if}} 
+                                    {{/with}}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="batchNumber" class="col-sm-4 control-label">Batch Number</label>
+                            <div class="col-sm-6">
+                                <select required class="form-control" id="batchNumber">
+                                    <option selected disabled value="">Select Batch Number</option>
+                                    {{#with TemplateVar.get 'batchInfo'}} {{#if list}} {{#each getBatchList}}
+                                    <option value="{{batchNumber}}">{{batchNumber}}</option>
+                                    {{/each}} {{/if}} {{/with}}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="createdby" class="col-sm-4 control-label">Created By</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="createdby" class="form-control" value="" placeholder="Created By" required/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-5">
+                                <button type="button" id="createSaleablebtn" style="position: relative;top: 10px;left: 72%;" class="btn btn-sm bg-all"> Create Saleable
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,58 @@
+<template name="components_Production_getSKUdetails">
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        
+                        <div class="col-sm-5">
+                            
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-default panel-dapp">
+            <div class="panel-heading">
+                SKU Details
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <td>SKU Code</td>
+                                        <td>SKU Size</td>
+                                        <td>Prawn Type</td>
+                                        <td>Description</td>
+                                        <td>SKU Createdby</td>
+                                        <td>SKU Createddate</td>
+                                        <td>SKU ReportName</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#with TemplateVar.get 'SKUInfo'}}
+                                    {{#if list}}
+
+                                {{#each getSKUdetails}}
+                                    <tr>
+                                        <td>{{SKUcode}}</td>
+                                        <td>{{SKUsize}}</td>
+                                        <td>{{prawntype}}</td>
+                                        <td>{{description}}</td>
+                                        <td>{{SKUcreatedby}}</td>
+                                        <td>{{SKUcreateddate}}</td>
+                                        <td><a href="" class="reportFile" id={{SKUReportHash}} style="color: #2980b9;"><b>{{SKUReportName}}</b></a></td>
+                                    </tr>
+                                    {{/each}}
+                                {{/if}}
+                                    {{/with}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </template>

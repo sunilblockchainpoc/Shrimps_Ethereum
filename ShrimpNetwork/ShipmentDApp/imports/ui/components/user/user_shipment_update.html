@@ -1,0 +1,150 @@
+<template name="components_user_shipment_update">
+        
+
+                <div class="panel panel-default panel-dapp">
+            
+                    <div class="panel-heading">
+            
+                        Update Shipment State
+            
+                    </div>
+            
+                    <div class="panel-body">
+            
+                        {{#with TemplateVar.get 'state'}} {{#if isError}}
+            
+                        <div class="alert alert-warning">
+            
+                            Update failed.
+            
+                        </div>
+            
+                        {{/if}} {{#if isMining}}
+            
+                        <div class="alert alert-info">
+            
+                            Update is in progress...
+            
+                            <span class="badge text-right">
+            
+                                <i class="fa fa-cog fa-spin"></i>
+            
+                            </span>
+            
+                        </div>
+            
+                        {{/if}} {{#if isMined}}
+            
+                        <div class="alert alert-info">
+            
+                            Updated Successfully! Note:- {{shipmentStateEventText}}.
+            
+                        </div>
+            
+                        {{/if}} {{/with}}
+            
+                        <div class="row">
+            
+                            <div class="col-sm-12">
+            
+                                <div class="table-responsive">
+            
+                                    <table class="table table-hover">
+            
+                                        <thead>
+            
+                                            <tr>
+            
+                                                <td>CONSIGNMENT_NO</td>
+                                                <td>package_id</td>
+                                                <td>Update Shipment State</td>
+            
+                                            </tr>
+            
+                                        </thead>
+            
+                                        <tbody>
+            
+                                            {{#with TemplateVar.get 'singleShipmentInfo'}} 
+                                            {{#if resultSet}} 
+                                            {{#each getShipmentResult}}
+            
+                                            <tr>
+            
+                                                <td>{{CONSIGNMENT_NO}}</td>
+            
+                                                <td>{{package_id}}</td>
+
+                                                <td>{{state}}</td>
+        
+                                                <td>
+            
+                                                    <form class="form-horizontal">
+            
+             
+            
+                                                        <div class="form-group">
+            
+                                                            <div class="col-sm-9">
+            
+                                                            <select required id="state" class="form-control">
+            
+                                                                <option selected disabled value="">{{state}}</option>
+            
+                                                                <option value=1>RECEIVED_OK</option>
+            
+                                                                <option value=2>SPOILED</option>
+            
+                                                               
+            
+                                                            </select>
+            
+                                                            </div>
+            
+                                                        </div>
+            
+             
+            
+            
+             
+            
+                                                        <div class="form-group">
+            
+                                                            <div class="col-sm-7">
+            
+                                                                <button type="submit" id="updateShipmentStateBtn" style="position: relative;top: 10px;left: 72%;" class="btn btn-sm bg-all">Update</button>
+            
+                                                            </div>
+            
+                                                        </div>
+            
+             
+            
+                                                    </form>
+            
+                                                </td>           
+            
+                                            </tr>
+            
+                                {{/each}}
+            
+                                {{/if}}
+            
+                                {{/with}}
+            
+                                </tbody>
+            
+                                </table>
+            
+                            </div>
+            
+                        </div>
+            
+                    </div>
+            
+                </div>
+            
+                </div>
+            
+            </template>
+  

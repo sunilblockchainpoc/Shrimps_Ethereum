@@ -1,0 +1,107 @@
+<template name="components_create_user">
+    <div class="panel panel-default panel-dapp">
+        <div class="panel-heading">
+            Create User
+        </div>
+        <div class="panel-body">
+            {{#with TemplateVar.get 'state'}} {{#if isError}}
+            <div class="alert alert-warning">
+                Error creating user. Please try again.
+            </div>
+            {{/if}} {{#if isMining}}
+            <div class="alert alert-info">
+                User Creation In Progress....
+                <span class="badge text-right">
+                    <i class="fa fa-cog fa-spin"></i>
+                </span>
+            </div>
+            {{/if}} {{#if isMined}}
+            <div class="alert alert-info">
+                User has been created successfully!. Note:- {{userEventText}}.
+            </div>
+            <hr />
+            <br /> {{/if}} {{/with}}
+
+            <div class="row">
+                <div class="col-md-12">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="firstName" class="col-sm-4 control-label">First Name</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="firstName" class="form-control" value="" placeholder="First Name" required/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName" class="col-sm-4 control-label">Last Name</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="lastName" class="form-control" value="" placeholder="Last Name" required/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="participantID" class="col-sm-4 control-label">Participant ID</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="participantID" class="form-control" value="" placeholder="Participant ID" required/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="participantType" class="col-sm-4 control-label">Participant Type</label>
+                            <div class="col-sm-6">
+                                <select required class="form-control" id="participantType">
+                                    <option selected disabled value="">Select Participant Type</option>
+                                    <option value="0">Farmer</option>
+                                    <option value="1">Procurement</option>
+                                    <option value="2">Production</option>
+                                    <option value="3">Internal QA</option>
+                                    <option value="4">External QA</option>
+                                    <option value="5">Retailer</option>
+                                    <option value="6">Importer</option>
+                                    <option value="7">Exporter</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description" class="col-sm-4 control-label">Description</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="description" class="form-control" value="" placeholder="Description" required/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="col-sm-4 control-label">Email ID</label>
+                            <div class="col-sm-6">
+                                <input type="email" id="email" class="form-control" value="" placeholder="Email ID" required/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="col-sm-4 control-label">Phone Number</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="phone" class="form-control" value="" placeholder="Phone Number" required/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="publicKey" class="col-sm-4 control-label">Ethereum Address</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="publicKey" class="form-control" value="" placeholder="Public Key" required/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-5">
+                                <button type="submit" id="createUserbtn" style="position: relative;top: 10px;left: 72%;" class="btn btn-sm bg-all"> Create User
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

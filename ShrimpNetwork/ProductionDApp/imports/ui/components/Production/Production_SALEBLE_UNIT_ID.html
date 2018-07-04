@@ -1,0 +1,54 @@
+<template name="components_Production_SALEBLE_UNIT_ID">
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-horizontal">
+                <div class="form-group">
+
+                    <div class="col-sm-5">
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-default panel-dapp">
+        <div class="panel-heading">
+            Saleable Details
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <td>Saleable Unit Id</td>
+                                    <td>SKU Code</td>
+                                    <td>Batch Id</td>
+                                    <td>Package Id</td>
+                                    <td>Created By</td>
+                                    <td>Created Date</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#with TemplateVar.get 'SaleableInfo'}} {{#if list}} {{#each SALEBLE_UNIT_ID}}
+                                <tr>
+
+                                    <td>
+                                        <a href="{{pathFor 'App.Update'}}?saleableunitid={{saleableunitid}}" target="_blank">{{saleableunitid}}</a>
+                                    </td>
+                                    <td>{{skucode}}</td>
+                                    <td>{{BatchId}}</td>
+                                    <td>{{packageid}}</td>
+                                    <td>{{createdby}}</td>
+                                    <td>{{createddate}}</td>
+                                </tr>
+                                {{/each}} {{/if}} {{/with}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

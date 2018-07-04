@@ -1,0 +1,89 @@
+<template name="components_Production_createSKU">
+    <div class="panel panel-default panel-dapp">
+        <div class="panel-heading">
+            Create SKU
+        </div>
+        <div class="panel-body">
+            {{#with TemplateVar.get 'state'}} {{#if isError}}
+            <div class="alert alert-warning">
+                Error creating user. Please try again.
+            </div>
+            {{/if}} {{#if isMining}}
+            <div class="alert alert-info">
+                SKU Creation In Progress....
+                <span class="badge text-right">
+                    <i class="fa fa-cog fa-spin"></i>
+                </span>
+            </div>
+            {{/if}} {{#if isMined}}
+            <div class="alert alert-info">
+                SKU has been created successfully!.
+            </div>
+            <hr />
+            <br /> {{/if}} {{/with}}
+
+            <div class="row">
+                <div class="col-md-12">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="SKUcode" class="col-sm-4 control-label">SKU Code</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="SKUcode" class="form-control" value="" placeholder="SKU Code" required />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="SKUsize" class="col-sm-4 control-label">SKU Size</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="SKUsize" class="form-control" value="" placeholder="SKU Size" required />
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="prawntype" class="col-sm-4 control-label">Prawn Type</label>
+                            <div class="col-sm-6">
+                                <select required class="form-control" id="prawntype">
+                                    <option selected disabled value="">Select Prawn Type</option>
+                                    <option value=0>Scampi</option>
+                                    <option value=1>Vannamei</option>
+                                    <option value=2>Black Tiger</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description" class="col-sm-4 control-label">Description</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="description" class="form-control" value="" placeholder="Description" required />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="SKUcreatedby" class="col-sm-4 control-label">SKU CreatedBy</label>
+                            <div class="col-sm-6">
+                                <input type="SKUcreatedby" id="SKUcreatedby" class="form-control" value="" placeholder="SKU CreatedBy" required/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="participantID" class="col-sm-4 control-label">Upload Report</label>
+                                   <div class="col-sm-6">
+                                <input type="file" id="reportFile" class="form-control" value="" placeholder="Enter Your Participant ID" required/>
+                               </div>
+                                   </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-5">
+                                <button type="button" id="createSKUbtn" style="position: relative;top: 10px;left: 72%;" class="btn btn-sm bg-all"> Create SKU
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

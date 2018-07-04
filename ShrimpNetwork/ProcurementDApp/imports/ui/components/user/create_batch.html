@@ -1,0 +1,123 @@
+<template name="components_create_batch">
+    <div class="panel panel-default panel-dapp">
+        <div class="panel-heading">
+            Create Batch
+        </div>
+        <div class="panel-body">
+            {{#with TemplateVar.get 'state'}} 
+            {{#if isError}}
+            <div class="alert alert-warning">
+                Batch Creation failed.
+            </div>
+            {{/if}} 
+            {{#if isMining}}
+            <div class="alert alert-info">
+                Batch Creation is in progress...
+                <span class="badge text-right">
+                    <i class="fa fa-cog fa-spin"></i>
+                </span>
+            </div>
+            {{/if}} 
+            {{#if isMined}}
+            <div class="alert alert-info">
+                Batch Created Successfully! Note:- {{batchEventText}}.
+            </div>
+            {{/if}} 
+            {{/with}}
+
+            <div class="row">
+                <div class="col-md-12">
+                    <form class="form-horizontal">
+
+                        <div class="form-group">
+                            <label for="batchNumber" class="col-sm-4 control-label">Batch Number</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="batchNumber" class="form-control" value="" placeholder="Batch Number" required/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="submittedBy" class="col-sm-4 control-label">Submitted By</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="submittedBy" class="form-control" value="" placeholder="Farmer Id" required />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="batchSize" class="col-sm-4 control-label">Batch Size</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="batchSize" class="form-control" value="" placeholder="Batch Size" required />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="batchDescription" class="col-sm-4 control-label">Batch Description</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="batchDescription" class="form-control" value="" placeholder="Batch Description"  required/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="prawnType" class="col-sm-4 control-label">Prawn Type</label>
+                            <div class="col-sm-6">
+                                <select required class="form-control" id="prawnType">
+                                    <option selected disabled value="">Select Prawn Type</option>
+                                    <option value="0">Scampi</option>
+                                    <option value="1">Vannamei</option>
+                                    <option value="2">Black Tiger</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="createdBy" class="col-sm-4 control-label">createdBy</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="createdBy" class="form-control" value="" placeholder="Procurement Team Id"  required/>
+                            </div>
+                        </div>
+
+                       <!--//////////////////////////////////////////////////////////////////////-->
+                       <div class="form-group">
+                            <label for="batchDescription" class="col-sm-4 control-label">Minimum Temperature</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="minimumTemperature" class="form-control" value="" placeholder="Minimum Temperature"  required/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                                <label for="batchDescription" class="col-sm-4 control-label">Maximum Temperature</label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="maximumTemperature" class="form-control" value="" placeholder="Maximum Temperature"  required/>
+                                </div>
+                            </div>
+                       
+                            <div class="form-group">
+                                    <label for="storageUnit" class="col-sm-4 control-label">Storage Unit</label>
+                                    <div class="col-sm-6">
+                                        <select required class="form-control" id="storageUnit">
+                                            <option selected disabled value="">Select Storage Unit</option>
+                                            <option value="0">Storage Unit 1</option>
+                                            <option value="1">Storage Unit 2</option>
+                                            <option value="2">Storage Unit 3</option>
+                                            <option value="0">Storage Unit 4</option>
+                                            <option value="0">Storage Unit 5</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                       
+                       
+                       <!--//////////////////////////////////////////////////////////////////////-->
+                       
+                        <div class="form-group">
+                            <div class="col-sm-5">
+                                <button type="submit" id="btnCreateBatch" style="position: relative;top: 10px;left: 72%;" class="btn btn-sm bg-all">Create Batch
+                                </button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

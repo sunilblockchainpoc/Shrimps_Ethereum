@@ -1,0 +1,63 @@
+<template name="components_Production_updatePackag_Id">
+    <div class="panel panel-default panel-dapp">
+        <div class="panel-heading">
+            Update Package Id
+        </div>
+        <div class="panel-body">
+             {{#with TemplateVar.get 'state'}}
+                {{#if isError}}
+                    <div class="alert alert-warning">
+                        Error updating package . Please try again.
+                    </div>
+                {{/if}}
+            
+                {{#if isMining}}
+                    <div class="alert alert-info">
+                      Package Update In Progress....
+                        <span class="badge text-right">
+                            <i class="fa fa-cog fa-spin"></i>
+                        </span>
+                    </div>
+                {{/if}}
+            
+                {{#if isMined}}
+                    <div class="alert alert-info">
+                        Package has been updated successfully!.
+                    </div>
+                    <hr />
+                    <br />
+            	{{/if}}
+
+            {{/with}} 
+
+            <div class="row">
+                <div class="col-md-12">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                                <label for="saleableunitid" class="col-sm-4 control-label">Saleable Unit Id</label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="saleableunitid" class="form-control" value="{{getsaleableunitId}}" placeholder="Saleable Unit Id" required/>
+                                </div>
+                            </div>
+
+                        <div class="form-group">
+                            <label for="packageid" class="col-sm-4 control-label">Package Id</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="packageid" class="form-control" value="" placeholder="Enter Package ID" required/>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="col-sm-5">
+                                <button type="button" id="updatePackag_Idbtn" style="position: relative;top: 10px;left: 72%;" class="btn btn-sm bg-all"> Update Package
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

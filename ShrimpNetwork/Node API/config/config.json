@@ -1,0 +1,19 @@
+{
+
+    "Procurementabipath": "./../Contract/bin/Procurement.abi",
+    "Procurementbytecodepath": "./../Contract/bin/Procurement.bin",
+    "ProcurementContractAddress": "0x071525002c66abd22d9145fe5759dad039ed4114",
+
+    "Productionabipath": "./../Contract/bin/Production.abi",
+    "Productionbytecodepath": "./../Contract/bin/Production.bin",
+    "ProductionContractAddress": "0xcc0b00336644b286b13146ddee7c9cc82bfda904",
+
+    "Shipmentabipath": "./../Contract/bin/Shipment.abi",
+    "Shipmentbytecodepath": "./../Contract/bin/Shipment.bin",
+    "ShipmentContractAddress": "0xfb97f2f47195b96658142cc3daf4bcbccc2619c7",
+
+    "Adminabipath": "./../Contract/bin/Admin.abi",
+    "Adminbytecodepath": "./../Contract/bin/Admin.bin",
+    "AdminContractAddress": "0x8e5a5084b5f5c95214bfcb94c739d155838908e0"
+
+}

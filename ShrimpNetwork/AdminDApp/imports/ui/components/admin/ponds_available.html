@@ -1,0 +1,39 @@
+<template name="components_ponds_available">
+    <div class="panel panel-default panel-dapp">
+        <div class="panel-heading">
+            Ponds Available
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <td>Pond ID</td>
+                                    <td>Pond Name</td>
+                                    <td>Pond Location</td>
+                                    <td>Pond Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#with TemplateVar.get 'pondInfo'}} 
+                                {{#if list}} 
+                                {{#each getPondList}}
+                                <tr>
+                                    <td>{{pondID}}</td>
+                                    <td>{{pondName}}</td>
+                                    <td>{{pondLocation}}</td>
+                                    <td>{{pondDescription}}</td>
+                                </tr>
+                                {{/each}} 
+                                {{/if}} 
+                                {{/with}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

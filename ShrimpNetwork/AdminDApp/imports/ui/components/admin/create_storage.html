@@ -1,0 +1,65 @@
+<template name="components_createstorage">
+    <div class="panel panel-default panel-dapp">
+        <div class="panel-heading">
+            Create Storage Unit
+        </div>
+        <div class="panel-body">
+            {{#with TemplateVar.get 'state'}} {{#if isError}}
+            <div class="alert alert-warning">
+                Error creating Storage Unit. Please try again.
+            </div>
+            {{/if}} {{#if isMining}}
+            <div class="alert alert-info">
+                Storage Unit Creation In Progress....
+                <span class="badge text-right">
+                    <i class="fa fa-cog fa-spin"></i>
+                </span>
+            </div>
+            {{/if}} {{#if isMined}}
+            <div class="alert alert-info">
+                Storage Unit has been created successfully!.
+            </div>
+            <hr />
+            <br /> {{/if}} {{/with}}
+
+            <div class="row">
+                <div class="col-md-12">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="storageUnitName" class="col-sm-4 control-label">Storage Unit Name</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="storageUnitName" class="form-control" value="" placeholder="Storage Unit Name" required />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="storageUnitCapacity" class="col-sm-4 control-label">Storage Unit Cappacity</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="storageUnitCapacity" class="form-control" value="" placeholder="Storage Unit Cappacity" required />
+                            </div>
+                        </div>
+
+
+                       
+
+                        <div class="form-group">
+                            <label for="storageUnitLocation" class="col-sm-4 control-label">Storage Unit Location</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="storageUnitLocation" class="form-control" value="" placeholder="Storage Unit Location" required />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-5">
+                                <button type="button" id="createSTORAGEbtn" style="position: relative;top: 10px;left: 72%;" class="btn btn-sm bg-all"> Create Storage Unit
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

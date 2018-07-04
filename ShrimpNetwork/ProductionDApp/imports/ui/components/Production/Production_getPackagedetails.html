@@ -1,0 +1,50 @@
+<template name="components_Production_getPackagedetails">
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        
+                        <div class="col-sm-5">
+                            
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-default panel-dapp">
+            <div class="panel-heading">
+                Package Details
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <td>Quantity</td>
+                                        <td>Created By</td>
+                                        <td>Created Date</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#with TemplateVar.get 'PACKAGEInfo'}}
+                                    {{#if list}}
+
+                                {{#each getPackagedetails}}
+                                    <tr>
+                                        <td>{{Quantity}}</td>
+                                        <td>{{packagingcreatedby}}</td>
+                                        <td>{{packagingcreateddate}}</td>
+                                    </tr>
+                                    {{/each}}
+                                {{/if}}
+                                    {{/with}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </template>

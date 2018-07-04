@@ -1,0 +1,60 @@
+<template name="components_Show_more_batch_details">
+        <div class="panel panel-default panel-dapp">
+            <div class="panel-heading">
+                Additional Batch Details
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <td>Maximum Temperature</td>
+                                        <td>Minimum Temperature</td>
+                                        <td>Storage Unit</td>
+                                        <td>Report Name</td>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#with TemplateVar.get 'moreBatchInfo'}} 
+                                    {{#if list}} 
+                                    {{#each getMoreBatchDetail}}
+                                    <tr>
+                                        <td>{{maximumTemperature}}</td>
+                                        <td>{{minimumTemperature}}</td>
+                                        <td>{{storageUnit}}</td>
+                                        <td><a href="" id="reportFile" style="color: #2980b9;"><b>{{reportName}}</b></a></td>
+                                        <!--<td><a href="{{pathFor 'App.showMoreDetails'}}?batchNumber={{batchNumber}}" style="color: #2980b9;"><b>Show More Details</b></a></td>-->
+                                    </tr>
+                                    {{/each}} 
+                                    {{/if}} 
+                                    {{/with}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    <!-- to create a dropdown with existing batch numbers
+    <hr><hr>
+        <div>
+            <div class="form-group">
+                <div class="col-sm-4">
+                    <select required class="form-control" id="batchNumber">
+                        <option selected disabled value="">Select Batch Number</option>
+                        {{#with TemplateVar.get 'batchInfo'}} 
+                        {{#if list}}
+                        {{#each getBatchList}}
+                        <option value="{{batchNumber}}">{{batchNumber}}</option>
+                        {{/each}}
+                        {{/if}}
+                        {{/with}}
+                    </select>
+                </div>
+            </div>
+        </div> -->

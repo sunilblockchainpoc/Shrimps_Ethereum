@@ -1,0 +1,75 @@
+<template name="components_deploy_procurement">
+    <div class="panel panel-default panel-dapp">
+        <div class="panel-heading">
+            Set up Procurement
+        </div>
+        <div class="panel-body">
+            {{#with TemplateVar.get 'state'}} {{#if isError}}
+            <div class="alert alert-warning">
+                There was an error deploying your contract. The error was: "{{error}}".
+            </div>
+            {{/if}} {{#if isMining}}
+            <div class="alert alert-info">
+                Your contract is being mined...
+                <span class="badge text-right">
+                    <i class="fa fa-cog fa-spin"></i>
+                </span>
+            </div>
+            {{/if}} {{#if isMined}}
+            <div class="alert alert-info">
+                Your Contract has been created!
+            </div>
+
+            <hr />
+
+            <label>
+                Your contract has been deployed to this address:
+            </label>
+
+            <input type="text" class="form-control" value="{{address}}" placeholder="Address" />
+
+            <br /> {{/if}} {{#if rolesCreated}}
+            <div class="alert alert-info">
+                Roles and Groups have been created!
+            </div>
+            {{/if}} {{/with}}
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-sm-5">
+                                <button type="button" id="deployAdminBtn" style="position: relative;top: 10px;left: 72%;" class="btn btn-sm bg-all">
+                                Deploy Admin Contract
+                                </button>
+                            </div>
+                            </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-5">
+                                <button type="button" id="deployProcurementBtn" style="position: relative;top: 10px;left: 72%;" class="btn btn-sm bg-all">
+                                Deploy Procurement Contract
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-5">
+                                <button type="button" id="deployProductionBtn" style="position: relative;top: 10px;left: 72%;" class="btn btn-sm bg-all">
+                                Deploy Production Contract
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-5">
+                                <button type="button" id="deployShipmentBtn" style="position: relative;top: 10px;left: 72%;" class="btn btn-sm bg-all">
+                                Deploy Shipment Contract
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

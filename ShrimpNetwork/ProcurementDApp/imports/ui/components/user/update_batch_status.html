@@ -1,0 +1,112 @@
+<template name="components_update_batch_status">
+    <div class="panel panel-default panel-dapp">
+        <div class="panel-heading">
+            Update Batch State
+        </div>
+        <div class="panel-body">
+            {{#with TemplateVar.get 'state'}} {{#if isError}}
+            <div class="alert alert-warning">
+                Update failed.
+            </div>
+            {{/if}} {{#if isMining}}
+            <div class="alert alert-info">
+                Update is in progress...
+                <span class="badge text-right">
+                    <i class="fa fa-cog fa-spin"></i>
+                </span>
+            </div>
+            {{/if}} {{#if isMined}}
+            <div class="alert alert-info">
+                Updated Successfully! Note:- {{batchStateEventText}}.
+            </div>
+            {{/if}} {{/with}}
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <td>Batch Number</td>
+                                    <!-- <td>Participant ID</td> -->
+                                    <td>Batch Size</td>
+                                    <td>Batch Description</td>
+                                    <td>Prawn Type</td>
+                                    <!-- <td>Created By</td>
+                                    <td>Created Date</td> -->
+                                    <td>&nbsp;&nbsp;Batch State</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#with TemplateVar.get 'singleBatchInfo'}} {{#if resultSet}} {{#each getBatchResult}}
+                                <tr>
+                                    <td>{{batchNumber}}</td>
+                                    <!-- <td>{{participantID}}</td> -->
+                                    <td>{{batchSize}}</td>
+                                    <td>{{batchDescription}}</td>
+                                    <td>{{prawnType}}</td>
+                                    <!-- <td>{{createdBy}}</td>
+                                    <td>{{createdDate}}</td> -->
+                                     <td>
+                                        <form class="form-horizontal">
+                                         <!-- ye td khud se dale hai-->      
+                                          
+                                            <div class="form-group">
+                                                <label for="batchState" class="col-sm-3 control-label">Current State</label>        
+                                                <div class="col-sm-6">
+                                                <select required id="batchState" class="form-control">
+                                                    <option selected disabled value="">{{batchState}}</option>
+                                                    <option value=1>Acknowledged By Farmer</option>
+                                                    <option value=2>Approved By Procurement</option>
+                                                    <option value=3>Rejected By Procurement</option>
+                                                    <option value=4>Received For QA Approval</option>
+                                                    <option value=5>Internal QA Approved</option>
+                                                    <option value=6>Internal QA Rejected</option>
+                                                    <option value=7>Received By Production</option>
+                                                    <option value=8>Approved By Production</option>
+                                                    <option value=9>Rejected By Production</option>
+                                                </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                    <label for="participantID" class="col-sm-3 control-label">Upload Report</label>
+                                                           <div class="col-sm-6">
+                                                        <input type="file" id="reportFile" class="form-control" value="" placeholder="Enter Your Participant ID" required/>
+                                                       </div>
+                                                           </div>
+
+                                            <div class="form-group">
+                                                    <label for="participantID" class="col-sm-3 control-label">Participant ID</label>
+                                                    <div class="col-sm-6">
+                                                        <input type="text" id="participantID" class="form-control" value="" placeholder="Enter Your Participant ID" required/>
+                                                    </div>
+                                            </div>
+                                             <!-- </td>-->  
+                                            
+                                          
+
+
+                                            <div class="form-group">
+                                                <div class="col-sm-7">
+                                                    <button type="submit" id="updateBatchStateBtn" style="position: relative;top: 10px;left: 72%;" class="btn btn-sm bg-all">Update</button>
+                                                </div>
+                                            </div>
+                                          
+                                        
+
+
+
+                                        </form>
+                                    </td>       
+                                </tr>
+                    {{/each}} 
+                    {{/if}} 
+                    {{/with}}
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</template>

@@ -1,0 +1,67 @@
+<template name="components_dashboard">
+    <div class="panel panel-default panel-dapp">
+        <div class="panel-heading">
+            Batch List
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <td>Batch Number</td>
+                                    <!-- <td>Participant ID</td> -->
+                                    <td>Batch Size</td>
+                                    <td>Batch Description</td>
+                                    <td>Prawn Type</td>
+                                    <td>Created By</td>
+                                    <td>Created Date</td>
+                                    <td>Batch State</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#with TemplateVar.get 'batchInfo'}} 
+                                {{#if list}} 
+                                {{#each getBatchList}}
+                                <tr>
+                                    <td><a href="{{pathFor 'App.updateBatchStatus'}}?batchNumber={{batchNumber}}" target="_blank" style="color: #2980b9;"><b>{{batchNumber}}</b></a></td>
+                                    <!-- <td>{{participantID}}</td> -->
+                                    <td>{{batchSize}}</td>
+                                    <td>{{batchDescription}}</td>
+                                    <td>{{prawnType}}</td>
+                                    <td>{{createdBy}}</td>
+                                    <td>{{createdDate}}</td>
+                                    <td>{{batchState}}</td>
+                                    <td><a href="{{pathFor 'App.showMoreDetails'}}?batchNumber={{batchNumber}}" target="_blank" style="color: #2980b9;"><b>Show More Details</b></a></td>
+                                </tr>
+                                {{/each}} 
+                                {{/if}} 
+                                {{/with}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<!-- to create a dropdown with existing batch numbers
+<hr><hr>
+    <div>
+        <div class="form-group">
+            <div class="col-sm-4">
+                <select required class="form-control" id="batchNumber">
+                    <option selected disabled value="">Select Batch Number</option>
+                    {{#with TemplateVar.get 'batchInfo'}} 
+                    {{#if list}}
+                    {{#each getBatchList}}
+                    <option value="{{batchNumber}}">{{batchNumber}}</option>
+                    {{/each}}
+                    {{/if}}
+                    {{/with}}
+                </select>
+            </div>
+        </div>
+    </div> -->

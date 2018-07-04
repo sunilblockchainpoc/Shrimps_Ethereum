@@ -1,0 +1,74 @@
+<template name="components_create_shipment">
+    <div class="panel panel-default panel-dapp">
+        <div class="panel-heading">
+            Create Shipment
+        </div>
+        <div class="panel-body">
+            {{#with TemplateVar.get 'state'}} {{#if isError}}
+            <div class="alert alert-warning">
+                Error creating user. Please try again.
+            </div>
+            {{/if}} {{#if isMining}}
+            <div class="alert alert-info">
+                Shipment Creation In Progress....
+                <span class="badge text-right">
+                    <i class="fa fa-cog fa-spin"></i>
+                </span>
+            </div>
+            {{/if}} {{#if isMined}}
+            <div class="alert alert-info">
+                Shipment has been created successfully!.
+            </div>
+            <hr />
+            <br /> {{/if}} {{/with}}
+
+            <div class="row">
+                <div class="col-md-12">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="packageID" class="col-sm-4 control-label">package_id</label>
+                            <div class="col-sm-6">
+                                <select required class="form-control" id="package_id">
+                                    <option selected disabled value="">Select Package ID</option>
+                                    {{#with TemplateVar.get 'SaleableInfo'}} {{#if list}} {{#each SALEBLE_UNIT_ID}}
+                                    <option value="{{packageid}}">{{packageid}}</option>
+                                    {{/each}} {{/if}} {{/with}}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="weight" class="col-sm-4 control-label">weight</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="weight" class="form-control" value="" placeholder="weight" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description" class="col-sm-4 control-label">description</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="description" class="form-control" value="" placeholder="description" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="created_by" class="col-sm-4 control-label">created_by</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="created_by" class="form-control" value="" placeholder="created_by" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-5">
+                                <button type="button" id="createUserbtn" style="position: relative;top: 10px;left: 72%;" class="btn btn-sm bg-all"> Create Shipment
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
