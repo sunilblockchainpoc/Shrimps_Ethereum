@@ -5,6 +5,7 @@
     "downloadURL":"http://localhost:9000/download",
     "generateURL":"http://localhost:9000/generate",
     "web3api":"http://localhost:8545"
+
   }
 }
 
